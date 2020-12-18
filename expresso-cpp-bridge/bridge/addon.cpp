@@ -2,9 +2,11 @@
 #include <vector>
 #include <string>
 #include <cmath>
-#include <bitset>
-#include <iostream>
 #include "bridge.h"
+#if defined(_DEBUG)
+#include <cassert>
+#include <algorithm>
+#endif
 
 // edited from https://github.com/scottinet/espresso-logic-minimizer/blob/master/bridge/addon.cc
 
@@ -29,6 +31,12 @@ extern "C" char ** run_espresso_from_path(char * path);
 // and then passed to the other overload.
 
 std::vector<std::string> minimize_from_data(std::vector<size_t> ones, size_t truth_table_width) {
+#if defined(_DEBUG)
+    // in debug block even though assert should be disabled in release because idk if is_sorted will run in release
+    assert((std::is_sorted(ones.begin(), ones.end())));
+    assert(("Truth Table Width is less than 1", (truth_table_width >= 1)));
+    assert(("Ones vector should not be empty", (!ones.empty())));
+#endif
     const auto truth_table_size = (size_t)std::pow((size_t)2, truth_table_width); // 2^width
     std::vector<std::string> PLA;
     PLA.reserve(truth_table_size + 3);
@@ -53,36 +61,35 @@ std::vector<std::string> minimize_from_data(std::vector<size_t> ones, size_t tru
 }
 std::vector<std::string> minimize_from_data(std::vector<std::string> data) {
     unsigned int length = data.size();
-  char
-    **truthTable,
-    **result;
+    assert(("data vector should not be empty", (length >= 1)));
+    char **truthTable, **result;
 
-  truthTable = new char*[length];
-  for (size_t i = 0; i < length; ++i) {
-      truthTable[i] = new char[data[i].size()+1];
-#ifdef _WIN32
-      strcpy_s(truthTable[i], data[i].size()+1, data[i].c_str());
+    truthTable = new char*[length];
+    for (size_t i = 0; i < length; ++i) {
+        truthTable[i] = new char[data[i].size()+1];
+#if defined(_MSC_VER)
+        strcpy_s(truthTable[i], data[i].size()+1, data[i].c_str());
 #else
-      strcpy(truthTable[i], data[i].c_str());
-#endif // _WIN32
-  }
-  result = run_espresso_from_data(truthTable, length);
-  std::vector<std::string> return_val;
-  if (result != NULL) {
-    for(unsigned int i = 0; result[i] != NULL; ++i) {
-        return_val.emplace_back(result[i]);
-      // since the result comes from C code, the memory was
-      // allocated using malloc and must be freed with free
-      free(result[i]);
+        strcpy(truthTable[i], data[i].c_str());
+#endif // _MSC_VER
     }
-
-    free(result);
-  }
-  // memory clean up
-  /*
-  for(unsigned int i = 0; i < length; delete truthTable[i++]);
-  delete truthTable;
-  */
-  delete[] truthTable; // visual studio likes this more?
-  return return_val;
+    result = run_espresso_from_data(truthTable, length);
+    std::vector<std::string> return_val;
+    if (result != NULL) {
+        #pragma warning(suppress: 6001)
+        for(unsigned int i = 0; result[i] != NULL; ++i) {
+            return_val.emplace_back(result[i]);
+            // since the result comes from C code, the memory was
+            // allocated using malloc and must be freed with free
+            free(result[i]);
+        }
+        free(result);
+    }
+    // memory clean up
+    /*
+    for(unsigned int i = 0; i < length; delete truthTable[i++]);
+    delete truthTable;
+    */
+    delete[] truthTable; // visual studio likes this more?
+    return return_val;
 }
