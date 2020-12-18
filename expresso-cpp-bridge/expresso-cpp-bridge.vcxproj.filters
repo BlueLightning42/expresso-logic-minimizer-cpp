@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Expresso">
+      <UniqueIdentifier>{f613707d-b558-418a-a4f3-38d4c873b66e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Expresso\Source">
+      <UniqueIdentifier>{e2d7b147-9ff2-4a3e-b82c-a023ce119d88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Expresso\Headers">
+      <UniqueIdentifier>{65f093b8-1ee8-47b9-b645-2c055f5c3fa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Expresso\Port">
+      <UniqueIdentifier>{1470a5fe-c86d-43f6-8d78-1c9a27a0b301}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bridge">
+      <UniqueIdentifier>{7ac121b4-1086-444d-8f72-c749dc0b78cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bridge\Source">
+      <UniqueIdentifier>{fc73c886-8156-4acd-9921-9c1acb51385d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bridge\Headers">
+      <UniqueIdentifier>{8cf73900-2453-4f77-8fae-ae139e7130e2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="espresso-src\black_white.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\canonical.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\cofactor.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\cols.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\compl.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\contain.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\cpu_time.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\cubestr.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\cvrin.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\cvrm.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\cvrmisc.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\cvrout.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\dominate.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\equiv.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\espresso.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\essen.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\essentiality.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\exact.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\expand.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\gasp.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\gimpel.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\globals.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\hack.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\indep.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\irred.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\map.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\matrix.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\mincov.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\opo.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\pair.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\part.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\primes.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\prtime.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\reduce.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\rows.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\set.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\setc.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\sharp.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\sigma.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\signature.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\signature_exact.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\sminterf.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\solution.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\sparse.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\strdup.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\unate.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\util_signature.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\verify.c">
+      <Filter>Expresso\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="espresso-src\port\sys\times.c">
+      <Filter>Expresso\Port</Filter>
+    </ClCompile>
+    <ClCompile Include="bridge\addon.cpp">
+      <Filter>Bridge\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="bridge\bridge.c">
+      <Filter>Bridge\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="espresso-src\copyright.h">
+      <Filter>Expresso\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="espresso-src\espresso.h">
+      <Filter>Expresso\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="espresso-src\mincov.h">
+      <Filter>Expresso\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="espresso-src\mincov_int.h">
+      <Filter>Expresso\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="espresso-src\port.h">
+      <Filter>Expresso\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="espresso-src\signature.h">
+      <Filter>Expresso\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="espresso-src\sparse.h">
+      <Filter>Expresso\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="espresso-src\sparse_int.h">
+      <Filter>Expresso\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="espresso-src\strdup.h">
+      <Filter>Expresso\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="espresso-src\utility.h">
+      <Filter>Expresso\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="espresso-src\port\sys\time.h">
+      <Filter>Expresso\Port</Filter>
+    </ClInclude>
+    <ClInclude Include="bridge\bridge.h">
+      <Filter>Bridge\Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
