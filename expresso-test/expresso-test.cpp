@@ -15,10 +15,11 @@ int main(){
     for (const auto s : res) {
         std::cout << s << "\n";
     }
-    std::cout << "Final test: " << std::endl;
-    res = minimize_from_data({ 
+    std::cout << "Final test.1: " << std::endl;
+    res = minimize_from_data({
         ".i 4",
         ".o 1",
+        ".type f",
         "0000 0",
         "0001 1",
         "0010 0",
@@ -37,7 +38,24 @@ int main(){
         "1111 1",
         ".e"
     });
-    for (const auto s : res) {
+    for ( const auto s : res ) {
+        std::cout << s << "\n";
+    }
+    std::cout << "Final test.2: " << std::endl;
+    res = minimize_from_data({
+        ".i 4",
+        ".o 1",
+        ".type f",
+        "0001 1",
+        "0011 1",
+        "0101 1",
+        "0111 1",
+        "1001 1",
+        "1011 1",
+        "1111 1",
+        ".e"
+    }); // exact same as above but only the ones. Therefore by default expresso doesn't need to be passed the zeros?
+    for ( const auto s : res ) {
         std::cout << s << "\n";
     }
 }

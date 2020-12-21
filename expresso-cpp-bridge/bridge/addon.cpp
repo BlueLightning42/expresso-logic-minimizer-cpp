@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <vector>
 #include <string>
-#include <cmath>
 #include "bridge.h"
 #if defined(_DEBUG)
 #include <cassert>
@@ -37,22 +36,17 @@ std::vector<std::string> minimize_from_data(std::vector<size_t> ones, size_t tru
     assert(( "Truth Table Width is less than 1", ( truth_table_width >= 1 ) ));
     assert(( "Ones vector should not be empty", ( !ones.empty() ) ));
 #endif
-    const auto truth_table_size = (size_t)std::pow((size_t)2, truth_table_width); // 2^width
     std::vector<std::string> PLA;
-    PLA.reserve(truth_table_size + 3);
+    PLA.reserve(ones.size() + 4);
     auto one = ones.begin();
     PLA.emplace_back(".i " + std::to_string(truth_table_width));
     PLA.emplace_back(".o 1"); // only supporting one output cause it fits my use case.
-    for ( size_t i = 0; i < truth_table_size; i++ ) {
-        std::string tmp(truth_table_width + 2, ' ');
+    PLA.emplace_back(".type f"); // I only want to supply the ones.
+    std::string tmp(truth_table_width + 2, ' ');
+    tmp[truth_table_width + 1] = '1';
+    for ( const auto& one : ones ) {
         for ( size_t j = 0; j < truth_table_width; j++ ) { // doing it manually cause I don't think theres a standard library way to convert to variable length bitset string.
-            tmp[j] = ( ( i >> j ) & 0x1 ) ? '1' : '0';
-        }
-        if ( one != ones.end() && *one == i ) {
-            tmp[truth_table_width + 1] = '1';
-            one++;
-        } else {
-            tmp[truth_table_width + 1] = '0';
+            tmp[j] = ( ( one >> j ) & 0x1 ) ? '1' : '0';
         }
         PLA.emplace_back(tmp);
     }
