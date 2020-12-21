@@ -6,7 +6,7 @@
 
 unsigned int debug;              /* debug parameter */
 bool verbose_debug;              /* -v:  whether to print a lot */
-char *total_name[TIME_COUNT];    /* basic function names */
+char* total_name[TIME_COUNT];    /* basic function names */
 long total_time[TIME_COUNT];     /* time spent in basic fcts */
 int total_calls[TIME_COUNT];     /* # calls to each fct */
 
@@ -25,7 +25,7 @@ bool trace;                      /* -t command line option */
 bool unwrap_onset;               /* -nunwrap command line option */
 bool use_random_order;		 /* -random command line option */
 bool use_super_gasp;		 /* -strong command line option */
-char *filename;			 /* filename PLA was read from */
+char* filename;			 /* filename PLA was read from */
 
 struct pla_types_struct pla_types[] = {
     {"-f", F_type},

@@ -43,8 +43,7 @@ typedef struct {
 /* essentiality.c */ extern pset_family etr_order (pset_family F, pset_family E, pset_family R, pset c, pset d);
 /* essentiality.c */ extern void aux_etr_order (pset_family F, pset_family E, pset_family R, pset c, pset d);
 /* essentiality.c */ extern pset_family get_mins (pset c);
-/* essentiality.c */ extern int ascending (VAR *p1, VAR *p2);
-/* util_signature.c */ extern void set_time_limit (int seconds);
+/* essentiality.c */ extern int ascending (VAR *p1, VAR *p2); 
 /* util_signature.c */ extern void print_cover (pset_family F, char *name);
 /* util_signature.c */ extern int sf_equal (pset_family F1, pset_family F2);
 /* util_signature.c */ extern int mem_usage (char *name);
