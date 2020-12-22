@@ -150,7 +150,8 @@ void pls_output(pPLA PLA) {
 
 
 void pls_group(pPLA PLA, FILE* fp) {
-	int var, i, col, len;
+	int var, i;
+	size_t len, col;
 
 	fprintf(fp, "\n.group");
 	col = 6;
@@ -171,11 +172,12 @@ void pls_group(pPLA PLA, FILE* fp) {
 
 
 void pls_label(pPLA PLA, FILE* fp) {
-	int var, i, col, len;
+	int var, i;
+	size_t len, col;
 
 	fprintf(fp, ".label");
 	col = 6;
-	for ( var = 0; var < cube.num_vars; var++ )
+	for ( var = 0; var < cube.num_vars; var++ ) {
 		for ( i = cube.first_part[var]; i <= cube.last_part[var]; i++ ) {
 			len = strlen(PLA->label[i]);
 			if ( col + len > 75 )
@@ -184,6 +186,7 @@ void pls_label(pPLA PLA, FILE* fp) {
 				putc(' ', fp), col += 1;
 			fprintf(fp, "%s", PLA->label[i]), col += len;
 		}
+	}
 }
 
 
@@ -193,7 +196,8 @@ void pls_label(pPLA PLA, FILE* fp) {
 */
 void eqn_output(pPLA PLA) {
 	register pcube p, last;
-	register int i, var, col, len;
+	int var, i;
+	size_t len, col;
 	int x;
 	bool firstand, firstor;
 
@@ -333,17 +337,16 @@ char* pc2(pset c) {
 
 void debug_print(pset* T, char* name, int level) {
 	register pcube* T1, p, temp;
-	register int cnt;
+	size_t cnt;
 
 	cnt = CUBELISTSIZE(T);
 	temp = new_cube();
-	if ( verbose_debug && level == 0 )
-		printf("\n");
-	printf("%s[%d]: ord(T)=%d\n", name, level, cnt);
+	if ( verbose_debug && level == 0 ) printf("\n");
+	printf("%s[%d]: ord(T)=%zd\n", name, level, cnt);
 	if ( verbose_debug ) {
 		printf("cofactor=%s\n", pc1(T[0]));
 		for ( T1 = T + 2, cnt = 1; ( p = *T1++ ) != (pcube)NULL; cnt++ )
-			printf("%4d. %s\n", cnt, pc1(set_or(temp, p, T[0])));
+			printf("%4zd. %s\n", cnt, pc1(set_or(temp, p, T[0])));
 	}
 	free_cube(temp);
 }

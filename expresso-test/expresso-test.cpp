@@ -6,12 +6,12 @@
 
 int main(){
     std::cout << "First test: " << std::endl;
-    auto res = minimize_from_data({ 1,3 }, 3);
+    auto res = minimize_from_ones({ 1,3 }, 3);
     for (const auto s : res) {
         std::cout << s << "\n";
     }
     std::cout << "Second test: " << std::endl;
-    res = minimize_from_data({ 1,2,7,8,9 }, 4);
+    res = minimize_from_ones({ 1,2,7,8,9 }, 4);
     for (const auto s : res) {
         std::cout << s << "\n";
     }

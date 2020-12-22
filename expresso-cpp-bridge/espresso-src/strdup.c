@@ -4,7 +4,7 @@
 #ifndef strdup
 char* strdup(const char* src) {
     char* dup;
-    unsigned int len;
+    size_t len;
 
     if ( !src ) return NULL;
 

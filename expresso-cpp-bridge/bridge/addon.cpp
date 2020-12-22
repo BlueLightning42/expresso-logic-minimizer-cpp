@@ -3,7 +3,7 @@
 #include <string>
 #include "bridge.h"
 #if defined(_DEBUG)
-#include <cassert>
+#include <stdexcept>
 #include <algorithm>
 #endif
 
@@ -29,12 +29,12 @@ extern "C" char** run_espresso_from_path(char* path);
   */
   // and then passed to the other overload.
 
-std::vector<std::string> minimize_from_data(std::vector<size_t> ones, size_t truth_table_width) {
+std::vector<std::string> minimize_from_ones(std::vector<size_t> ones, size_t truth_table_width) {
 #if defined(_DEBUG)
-    // in debug block even though assert should be disabled in release because idk if is_sorted will run in release
-    assert(( std::is_sorted(ones.begin(), ones.end()) ));
-    assert(( "Truth Table Width is less than 1", ( truth_table_width >= 1 ) ));
-    assert(( "Ones vector should not be empty", ( !ones.empty() ) ));
+    // using runtime errors in _debug instead of assert to be more explicit and because idk if is_sorted will dissapear in assert.
+    if ( !( std::is_sorted(ones.begin(), ones.end()) ) ) throw std::runtime_error("ones vector needs to be sorted.");
+    if ( truth_table_width < 1 )                         throw std::runtime_error("truth table width cannot be less than 1");
+    if ( ones.empty() )                                 throw std::runtime_error("Ones vector should not be empty");
 #endif
     std::vector<std::string> PLA;
     PLA.reserve(ones.size() + 4);
@@ -54,8 +54,10 @@ std::vector<std::string> minimize_from_data(std::vector<size_t> ones, size_t tru
     return minimize_from_data(PLA);
 }
 std::vector<std::string> minimize_from_data(std::vector<std::string> data) {
-    unsigned int length = data.size();
-    assert(( "data vector should not be empty", ( length >= 1 ) ));
+    size_t length = data.size();
+#if defined(_DEBUG)
+    if ( data.empty() ) throw std::runtime_error("data vector should not be empty");
+#endif
     char** truthTable, ** result;
 
     truthTable = new char* [length];
@@ -67,7 +69,7 @@ std::vector<std::string> minimize_from_data(std::vector<std::string> data) {
         strcpy(truthTable[i], data[i].c_str());
 #endif // _MSC_VER
     }
-    result = run_espresso_from_data(truthTable, length);
+    result = run_espresso_from_data(truthTable, (unsigned int)length);
     std::vector<std::string> return_val;
     if ( result != NULL ) {
 #pragma warning(suppress: 6001)
